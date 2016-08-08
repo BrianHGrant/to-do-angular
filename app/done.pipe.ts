@@ -5,6 +5,12 @@ import {Task} from './task.model';
   name: "done",
   pure: false
 })
+// export class DonePipe implements PipeTransform {
+//   transform(input: Task[], args) {
+//     console.log('selected task: ', args[1]);
+//   }
+// }
+
 export class DonePipe implements PipeTransform {
   transform(input: Task[], args) {
    var desiredDoneState = args[0];
@@ -12,7 +18,7 @@ export class DonePipe implements PipeTransform {
       return input.filter(function(task) {
         return task.done;
       });
-    } else if (desiredDOneState === "notDone") {
+    } else if (desiredDoneState === "notDone") {
       return input.filter((task) => {
         return !task.done;
       });
